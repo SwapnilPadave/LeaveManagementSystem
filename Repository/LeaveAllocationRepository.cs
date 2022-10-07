@@ -1,5 +1,6 @@
 ﻿using LeaveManagementSystem.Contracts;
 using LeaveManagementSystem.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,13 @@ namespace LeaveManagementSystem.Repository
         {
             _db = db;
         }
+
+        public bool ChechAllocation(int leaveTypeid, string employeeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll().Where(x =>x.EmployeeId==employeeid && x.LeaveTypeId==leaveTypeid && x.Period==period).Any();
+        }
+
         public bool Create(LeaveAllocation entity)
         {
             _db.LeaveAllocations.Add(entity);
@@ -29,14 +37,27 @@ namespace LeaveManagementSystem.Repository
 
         public ICollection<LeaveAllocation> FindAll()
         {
-            var leaveTypes = _db.LeaveAllocations.ToList();
+            var leaveTypes = _db.LeaveAllocations
+                .Include(x=>x.LeaveType)
+                .Include(x => x.Employee)
+                .ToList();
             return leaveTypes;
         }
 
         public LeaveAllocation FindById(int id)
         {
-            var leaveType = _db.LeaveAllocations.Find(id);
+            var leaveType = _db.LeaveAllocations
+                .Include(x => x.LeaveType)
+                .Include(x => x.Employee)
+                .FirstOrDefault(x => x.Id==id);
             return leaveType;
+        }
+
+        public ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string id)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .Where(x => x.EmployeeId == id && x.Period == period).ToList();
         }
 
         public bool IsExists(int id)
