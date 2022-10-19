@@ -42,7 +42,7 @@ namespace LeaveManagementSystem.Models
     }
     public class AdminLeaveRequestViewModel
     {
-        [Display(Name ="Total Number Of Requests")]
+        [Display(Name ="Total No Of Requests")]
         public int TotalRequests { get; set; }
 
         [Display(Name = "Approved Requests")]

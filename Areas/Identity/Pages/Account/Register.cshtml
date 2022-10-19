@@ -4,9 +4,9 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+@*<h1>@ViewData["Title"]</h1>*@
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h4>Create a new account.</h4>
@@ -69,6 +69,72 @@
                 }
             }
         </section>
+    </div>
+</div>*@
+
+<div class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <strong>Register</strong>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Create A New <strong>Account</strong></p>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form method="post">
+                <div class="input-group md-3">
+                    <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                <div class="input-group md-3">
+                    <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                <div class="input-group md-3">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope-open"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                <div class="input-group md-3">
+                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <div class="input-group md-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </div>
+            </form>
+            <br />
+            <a asp-page="./Login" class="text-center">I Alredy Have An Account</a>
+        </div>
     </div>
 </div>
 
