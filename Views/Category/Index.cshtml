@@ -1,0 +1,80 @@
+﻿@model IEnumerable<LeaveManagementSystem.Models.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Category List</h1>
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<table id="tblData" class="table">
+  
+        <thead>
+            <tr>
+                @*<th>
+                        Category Id
+                    </th*@>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Created Date
+                </th>
+                <th>
+                    Is Active
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                           @Html.DisplayFor(modelItem => item.CatId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CatName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <td>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CatId">
+                                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                            </a> |
+                            <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CatId">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            </a>  |
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CatId" onclick="return confirm('Are You Sure You Want To Delete This Record ??')">
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </a>
+
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    
+    </table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+
+}

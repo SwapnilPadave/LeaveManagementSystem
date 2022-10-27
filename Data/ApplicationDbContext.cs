@@ -19,5 +19,7 @@ namespace LeaveManagementSystem.Data
         public DbSet<LeaveRequest> LeaveRequests { get; set; }
         public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<LeaveManagementSystem.Models.LeaveRequestViewModel> LeaveRequestViewModel { get; set; }
+        public DbSet<CategoryMaster> Categories { get; set; }
+        public DbSet<ProductMaster> Products { get; set; }        
     }
 }

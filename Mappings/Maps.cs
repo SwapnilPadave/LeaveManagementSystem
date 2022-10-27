@@ -17,6 +17,8 @@ namespace LeaveManagementSystem.Mappings
             CreateMap<LeaveAllocation, LeaveAllocationViewModel>().ReverseMap();
             CreateMap<LeaveAllocation, EditLeaveAllocationViewModel>().ReverseMap();
             CreateMap<LeaveRequest, LeaveRequestViewModel>().ReverseMap();
+            CreateMap<CategoryMaster, CategoryViewModel>().ReverseMap();
+            CreateMap<ProductMaster, ProductViewModel>().ReverseMap();            
         }
     }
 }
