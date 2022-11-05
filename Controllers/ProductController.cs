@@ -183,5 +183,46 @@ namespace LeaveManagementSystem.Controllers
                 //return View(model);
             }
         }
+        public async Task<ActionResult> Delete(int id)
+        {
+            var pro = await _productRepository.FindById(id);
+            if (pro == null)
+            {
+                return NotFound();
+            }
+            var isSuccess = await _productRepository.Delete(pro);
+
+            if (!isSuccess)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+
+        public async Task<ActionResult> Delete(int id, ProductViewModel model)
+        {
+            try
+            {
+                var pro = await _productRepository.FindById(id);
+                if (pro == null)
+                {
+                    return NotFound();
+                }
+                var isSuccess = await _productRepository.Delete(pro);
+
+                if (!isSuccess)
+                {
+                    return View(model);
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(model);
+            }
+        }
     }
 }
