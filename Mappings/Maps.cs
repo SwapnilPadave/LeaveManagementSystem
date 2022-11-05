@@ -19,6 +19,7 @@ namespace LeaveManagementSystem.Mappings
             CreateMap<LeaveRequest, LeaveRequestViewModel>().ReverseMap();
             CreateMap<CategoryMaster, CategoryViewModel>().ReverseMap();
             CreateMap<ProductMaster, ProductViewModel>().ReverseMap();            
+            CreateMap<ProductMaster, EmployeeProductViewModel>().ReverseMap();            
         }
     }
 }
