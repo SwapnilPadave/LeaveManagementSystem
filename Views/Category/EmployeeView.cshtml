@@ -1,0 +1,62 @@
+﻿@model IEnumerable<LeaveManagementSystem.Models.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "EmployeeView";
+}
+
+<h1>Category List</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatName)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.CatId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CatId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CatId">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+
+}

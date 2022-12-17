@@ -34,6 +34,13 @@ namespace LeaveManagementSystem.Controllers
             return View(model);
         }
 
+        public async Task<ActionResult> EmployeeView()
+        {
+            var catList = await _categoryRepository.FindAll();
+            var model = _mapper.Map<List<CategoryMaster>, List<CategoryViewModel>>(catList.ToList());
+            return View(model);
+        }
+
         public ActionResult Create()
         {
             return View();

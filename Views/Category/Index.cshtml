@@ -8,7 +8,7 @@
 @if (User.IsInRole("Administrator"))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create New</a>
     </p>
 }
 
@@ -18,7 +18,7 @@
             <tr>
                 @*<th>
                         Category Id
-                    </th*@>
+                    </th>*@
                 <th>
                     Category Name
                 </th>
