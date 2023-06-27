@@ -27,7 +27,7 @@ namespace LeaveManagementSystem.Controllers
             UserManager<Employee> userManager
             )
         {
-            _leaveAllocationRepo = leaveAllocationRepo;
+            _leaveAllocationRepo = leaveAllocationRepo; 
             _leaveRepo = leaveRepo;
             _mapper = mapper;
             _userManager = userManager;
