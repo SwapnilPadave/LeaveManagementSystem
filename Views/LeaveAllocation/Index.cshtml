@@ -4,31 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="color:chocolate;">Employee Leave Allocation</h1>
 
 <table class="table">
-    <thead>
+    <thead style="color:blue;">
         <tr>
             <th>
-                Leave Types
+                <b>Leave Types</b>
             </th>
-            <th>Action</th>
+            <th>
+                <b>Action</b>
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.LeaveTypes) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>           
-            <td>
-                @*@Html.ActionLink("Allocate To Employees", "SetLeave", new {  id=item.Id })*@ 
-                <a class="btn btn-outline-success" asp-action="SetLeave" asp-route-id="@item.Id">
-                    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                    Allocate To Employees
-                </a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.LeaveTypes)
+        {
+            <tr>
+                <td>
+                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                </td>
+                <td>
+                    @*@Html.ActionLink("Allocate To Employees", "SetLeave", new {  id=item.Id })*@
+                    <a class="btn btn-outline-success" asp-action="SetLeave" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                        Allocate To Employees
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

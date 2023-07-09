@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Leave Types</h1>
+<h1 style="color:chocolate;">Leave Types</h1>
 <hr />
 <p>
-    <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create New</a>
+    <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true" title="Create New Leave Type"></i> Create New</a>
 </p>
 <table id="tblData" class="table">
-    <thead>
+    <thead style="color:blue;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -32,13 +32,13 @@
                     @Html.DisplayFor(modelItem => item.DefaultDays)
                 </td>
                 <td>
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
                     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                    </a> 
-                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">
+                    </a> &nbsp;
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id" title="Details">
                     <i class="fas fa-info-circle" aria-hidden="true"></i>
-                    </a> 
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are You Sure You Want To Delete This Record ??')">
+                    </a> &nbsp;
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are You Sure You Want To Delete This Record ??')" title="Delete">
                     <i class="fas fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>

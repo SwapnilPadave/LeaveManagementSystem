@@ -5,10 +5,10 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1 style="color:chocolate">Edit</h1>
 
 <hr />
-<div class="row">
+<div class="row" style="color:blue;">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -28,11 +28,10 @@
                 <input type="submit" value="Save Changes" class="btn btn-success btn-block" />
             </div>
         </form>
+        <div class="col-md-4">
+            <a asp-action="Index" class="btn btn-primary"  style="width:450px; text-align:center"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" class="btn btn-primary"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a>
 </div>
 
 @section Scripts {

@@ -6,7 +6,7 @@
 
 @if (Model.Approved == null)
 {
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-warning" role="alert" style="color:blue;">
         <h4 class="alert-heading">Pending Approval</h4>
         <p>
             <strong>@Html.DisplayNameFor(model => model.RequestingEmployeeId) :</strong> @Model.RequestingEmployee.FirstName @Model.RequestingEmployee.LastName
@@ -52,25 +52,25 @@ else
         <hr />*@
 <div>
 <dl class="row">
-    <dt class="col-sm-2">
+    <dt class="col-sm-2" style="color:blue;">
         @Html.DisplayNameFor(model => model.RequestingEmployee)
     </dt>
     <dd class="col-sm-10">
         @Html.DisplayFor(model => model.RequestingEmployee.FirstName) @Html.DisplayFor(model => model.RequestingEmployee.LastName)
     </dd>
-    <dt class="col-sm-2">
+    <dt class="col-sm-2" style="color:blue;">
         @Html.DisplayNameFor(model => model.StartDate)
     </dt>
     <dd class="col-sm-10">
         @Html.DisplayFor(model => model.StartDate)
     </dd>
-    <dt class="col-sm-2">
+    <dt class="col-sm-2" style="color:blue;">
         @Html.DisplayNameFor(model => model.EndDate)
     </dt>
     <dd class="col-sm-10">
         @Html.DisplayFor(model => model.EndDate)
     </dd>
-    <dt class="col-sm-2">
+    <dt class="col-sm-2" style="color:blue;">
         @Html.DisplayNameFor(model => model.LeaveType)
     </dt>
     <dd class="col-sm-10">
