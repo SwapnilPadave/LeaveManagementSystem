@@ -85,8 +85,8 @@ namespace LeaveManagementSystem.Contracts
                 var leaveTypeId = leaveRequest.LeaveTypeId;
                 var allocation =await _leaveAllocationRepository.GetLeaveAllocationsByEmployeeType(employeeId, leaveTypeId);
                 int daysRequsted = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
-                //allocation.NumberOfDays = allocation.NumberOfDays - daysRequsted;
-                allocation.NumberOfDays -= daysRequsted;
+                allocation.NumberOfDays = allocation.NumberOfDays - daysRequsted;
+                //allocation.NumberOfDays -= daysRequsted;
 
                 leaveRequest.Approved = true;
                 leaveRequest.ApprovedById = user.Id;
@@ -168,6 +168,18 @@ namespace LeaveManagementSystem.Contracts
                 if (DateTime.Compare(startDate, endDate) > 1)
                 {
                     ModelState.AddModelError("", "Start Date cannot be further in the futre than the End Date..");
+                    return View(model);
+                }
+
+                if (DateTime.Compare(startDate, DateTime.Now) < 1)
+                {
+                    ModelState.AddModelError("", "Start date cannot be less than todays date..");
+                    return View(model);
+                }
+
+                if (DateTime.Compare(endDate, DateTime.Now) < 1)
+                {
+                    ModelState.AddModelError("", "End date cannot be less than todays date..");
                     return View(model);
                 }
 
